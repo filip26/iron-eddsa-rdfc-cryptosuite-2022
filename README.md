@@ -68,7 +68,7 @@ compile group: 'com.apicatalog', name: 'iron-eddsa-cryptosuite-2022-jre8', versi
 
 ```java
 try {
-  Vc.verify(credential|presentation, new EdDsaSignature2022())
+  Vc.verify(credential|presentation, new EdDSASignature2022())
       
     // optional
     .base(...)
@@ -91,7 +91,7 @@ try {
 ### Issuing
 
 ```java
-var suite = new EdDsaSignature2022();
+var suite = new EdDSASignature2022();
 
 var proofDraft = suite.createDraft(
     verificationMethod,

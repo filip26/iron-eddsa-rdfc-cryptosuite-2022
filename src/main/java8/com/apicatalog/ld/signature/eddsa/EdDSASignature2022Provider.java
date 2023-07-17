@@ -13,7 +13,7 @@ import com.google.crypto.tink.signature.SignatureConfig;
 import com.google.crypto.tink.subtle.Ed25519Sign;
 import com.google.crypto.tink.subtle.Ed25519Verify;
 
-public final class EdDsaSignature2022Provider implements SignatureAlgorithm {
+public final class EdDSASignature2022Provider implements SignatureAlgorithm {
     
     @Override
     public void verify(byte[] publicKey, byte[] signature, byte[] data) throws VerificationError {
@@ -53,7 +53,7 @@ public final class EdDsaSignature2022Provider implements SignatureAlgorithm {
         try {
             final Ed25519Sign.KeyPair kp = Ed25519Sign.KeyPair.newKeyPair();
 
-            return new EdDsaKeyPair2022(
+            return new EdDSAKeyPair2022(
                             null,
                             null,
                             URI.create(EdDsaSignature2022.KEY_PAIR_TYPE.uri()),

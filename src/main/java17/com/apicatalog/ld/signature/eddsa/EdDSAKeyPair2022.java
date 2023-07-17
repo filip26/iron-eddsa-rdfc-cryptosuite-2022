@@ -5,7 +5,7 @@ import java.util.Objects;
 
 import com.apicatalog.ld.signature.key.KeyPair;
 
-public record EdDsaKeyPair2020(
+public record EdDSAKeyPair2022(
         URI id,
         URI controller,
         URI type,
@@ -13,7 +13,7 @@ public record EdDsaKeyPair2020(
         byte[] privateKey
         ) implements KeyPair {
 
-    public EdDsaKeyPair2020 {
+    public EdDSAKeyPair2022 {
         Objects.requireNonNull(id);
     }
 }

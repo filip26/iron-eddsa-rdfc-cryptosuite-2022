@@ -11,7 +11,7 @@ import com.apicatalog.jsonld.loader.DocumentLoader;
 import com.apicatalog.jsonld.schema.LdSchema;
 import com.apicatalog.ld.DocumentError;
 import com.apicatalog.ld.signature.VerificationMethod;
-import com.apicatalog.ld.signature.eddsa.EdDsaSignature2022;
+import com.apicatalog.ld.signature.eddsa.EdDSASignature2022;
 import com.apicatalog.multibase.Multibase.Algorithm;
 import com.apicatalog.multicodec.Multicodec.Codec;
 import com.apicatalog.vc.integrity.DataIntegrityKeysAdapter;
@@ -99,7 +99,7 @@ public class VcTestCase {
 
 
                 LdSchema schema = DataIntegritySchema.getVerificationKey(
-                        EdDsaSignature2022.VERIFICATION_KEY_TYPE,
+                        EdDSASignature2022.VERIFICATION_KEY_TYPE,
                         DataIntegritySchema.getPublicKey(
                                 Algorithm.Base58Btc,
                                 Codec.Ed25519PublicKey,

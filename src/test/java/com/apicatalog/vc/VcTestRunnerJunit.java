@@ -24,7 +24,7 @@ import com.apicatalog.jsonld.schema.LdSchema;
 import com.apicatalog.ld.DocumentError;
 import com.apicatalog.ld.signature.SigningError;
 import com.apicatalog.ld.signature.VerificationError;
-import com.apicatalog.ld.signature.eddsa.EdDsaSignature2022;
+import com.apicatalog.ld.signature.eddsa.EdDSASignature2022;
 import com.apicatalog.ld.signature.key.KeyPair;
 import com.apicatalog.multibase.Multibase.Algorithm;
 import com.apicatalog.multicodec.Multicodec.Codec;
@@ -64,7 +64,7 @@ public class VcTestRunnerJunit {
         try {
             if (testCase.type.contains(VcTestCase.vocab("VeriferTest"))) {
 
-                Vc.verify(testCase.input, new EdDsaSignature2022())
+                Vc.verify(testCase.input, new EdDSASignature2022())
                         .loader(LOADER)
                         .param(DataIntegritySchema.DOMAIN.name(), testCase.domain)
                         .isValid();
@@ -82,7 +82,7 @@ public class VcTestRunnerJunit {
                     keyPairLocation = URI.create(VcTestCase.base("issuer/0001-keys.json"));
                 }
 
-                final EdDsaSignature2022 suite = new EdDsaSignature2022();
+                final EdDSASignature2022 suite = new EdDSASignature2022();
 
                 final DataIntegrityProof draft = suite.createDraft(
                         // proof options
@@ -209,7 +209,7 @@ public class VcTestRunnerJunit {
             }
 
             LdSchema schema = DataIntegritySchema.getKeyPair(
-                    EdDsaSignature2022.KEY_PAIR_TYPE,
+                    EdDSASignature2022.KEY_PAIR_TYPE,
                     DataIntegritySchema.getPublicKey(
                             Algorithm.Base58Btc,
                             Codec.Ed25519PublicKey,

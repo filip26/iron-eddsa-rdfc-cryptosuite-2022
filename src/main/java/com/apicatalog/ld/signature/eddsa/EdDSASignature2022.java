@@ -12,13 +12,13 @@ import com.apicatalog.vc.VcVocab;
 import com.apicatalog.vc.integrity.DataIntegritySchema;
 import com.apicatalog.vc.integrity.DataIntegritySuite;
 
-public final class EdDsaSignature2022 extends DataIntegritySuite {
+public final class EdDSASignature2022 extends DataIntegritySuite {
 
     static final CryptoSuite CRYPTO = new CryptoSuite(
             "eddsa-2022",
             new Urdna2015(),
             new MessageDigest("SHA-256"),
-            new EdDsaSignature2022Provider());
+            new EdDSASignature2022Provider());
 
     public static final LdTerm VERIFICATION_KEY_TYPE = LdTerm.create("Ed25519VerificationKey2020", VcVocab.SECURITY_VOCAB);
 
@@ -38,7 +38,7 @@ public final class EdDsaSignature2022 extends DataIntegritySuite {
             Algorithm.Base58Btc,
             key -> key.length == 64);
 
-    public EdDsaSignature2022() {
+    public EdDSASignature2022() {
         super(CRYPTO, METHOD_SCHEMA, PROOF_VALUE_PROPERTY);
     }
 }

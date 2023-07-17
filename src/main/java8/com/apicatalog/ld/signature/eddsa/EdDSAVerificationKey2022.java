@@ -4,14 +4,14 @@ import java.net.URI;
 
 import com.apicatalog.ld.signature.key.VerificationKey;
 
-public class EdDsaVerificationKey2022 implements VerificationKey {
+public class EdDSAVerificationKey2022 implements VerificationKey {
 
     private final URI id;
     private final URI controller;
     private final URI type;
     private final byte[] publicKey;
     
-    public EdDsaVerificationKey2022(
+    public EdDSAVerificationKey2022(
             URI id,
             URI controller,
             URI type,

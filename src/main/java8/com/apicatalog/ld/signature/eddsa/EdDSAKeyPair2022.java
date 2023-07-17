@@ -4,11 +4,11 @@ import java.net.URI;
 
 import com.apicatalog.ld.signature.key.KeyPair;
 
-public final class EdDsaKeyPair2022 extends EdDsaVerificationKey2022 implements KeyPair {
+public final class EdDSAKeyPair2022 extends EdDSAVerificationKey2022 implements KeyPair {
 
     private final byte[] privateKey;
     
-    public EdDsaKeyPair2022(
+    public EdDSAKeyPair2022(
                 URI id,
                 URI controller,
                 URI type,
