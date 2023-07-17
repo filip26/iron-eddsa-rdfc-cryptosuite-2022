@@ -25,13 +25,13 @@ An implementation of the [EdDSA Cryptosuite 2022](https://www.w3.org/TR/vc-di-ed
 <dependency>
     <groupId>com.apicatalog</groupId>
     <artifactId>iron-eddsa-cryptosuite-2022</artifactId>
-    <version>0.8.1</version>
+    <version>0.9.0</version>
 </dependency>
 
 <dependency>
     <groupId>com.apicatalog</groupId>
     <artifactId>iron-verifiable-credentials</artifactId>
-    <version>0.8.1</version>
+    <version>0.9.0</version>
 </dependency>
 ```
 
@@ -42,20 +42,20 @@ or
 <dependency>
     <groupId>com.apicatalog</groupId>
     <artifactId>iron-eddsa-cryptosuite-2022-jre8</artifactId>
-    <version>0.8.1</version>
+    <version>0.9.0</version>
 </dependency>
 
 <dependency>
     <groupId>com.apicatalog</groupId>
     <artifactId>iron-verifiable-credentials-jre8</artifactId>
-    <version>0.8.1</version>
+    <version>0.9.0</version>
 </dependency>
 ```
 
 ### Gradle
 
 ```gradle
-compile group: 'com.apicatalog', name: 'iron-eddsa-cryptosuite-2022-jre8', version: '0.8.1'
+compile group: 'com.apicatalog', name: 'iron-eddsa-cryptosuite-2022-jre8', version: '0.9.0'
 ```
 
 ## Documentation
@@ -68,7 +68,7 @@ compile group: 'com.apicatalog', name: 'iron-eddsa-cryptosuite-2022-jre8', versi
 
 ```java
 try {
-  Vc.verify(credential|presentation, new Ed25519Signature2020())
+  Vc.verify(credential|presentation, new EdDsaSignature2022())
       
     // optional
     .base(...)
@@ -91,11 +91,12 @@ try {
 ### Issuing
 
 ```java
-var proofDraft = Ed25519Signature2020.createDraft(
+var suite = new EdDsaSignature2022();
+
+var proofDraft = suite.createDraft(
     verificationMethod,
     purpose,
-    created,    
-    domain     // optional
+    created
     );
 
 Vc.sign(credential|presentation, keys, proofDraft)
