@@ -89,7 +89,8 @@ public class VcTestRunnerJunit {
                         testCase.verificationMethod,
                         URI.create("https://w3id.org/security#assertionMethod"),
                         testCase.created,
-                        testCase.domain);
+                        testCase.domain,
+                        null);
 
                 final Issuer issuer = Vc.sign(testCase.input, getKeys(keyPairLocation, LOADER), draft)
                         .loader(LOADER);

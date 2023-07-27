@@ -5,6 +5,8 @@ import java.util.Objects;
 
 import com.apicatalog.ld.signature.key.VerificationKey;
 
+/*TODO replace with Multikey */
+@Deprecated
 public record EdDSAVerificationKey2022(
         URI id,
         URI controller,
