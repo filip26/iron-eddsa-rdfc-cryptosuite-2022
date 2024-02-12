@@ -48,17 +48,20 @@ public final class EdDSASignature2022 extends DataIntegritySuite {
                     && method.publicKey().length != 32
                     && method.publicKey().length != 57
                     && method.publicKey().length != 114) {
-                throw new DocumentError(ErrorType.Invalid, "PublicKeySize");
+                throw new DocumentError(ErrorType.Invalid, "PublicKeyLength");
             }
         };
     };
 
-//    static final LdProperty<byte[]> PROOF_VALUE_PROPERTY = DataIntegritySchema.getProofValue(
-//            Algorithm.Base58Btc,
-//            key -> key.length == 64);
-
     public EdDSASignature2022() {
         super(CRYPTOSUITE_NAME, METHOD_ADAPTER);
+    }
+
+    @Override
+    protected void validateProofValue(byte[] proofValue) throws DocumentError {
+        if (proofValue != null && proofValue.length != 64) {
+            throw new DocumentError(ErrorType.Invalid, "ProofValueLength");
+        }
     }
 
     @Override
