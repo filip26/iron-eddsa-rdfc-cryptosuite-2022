@@ -67,7 +67,6 @@ public final class EdDSASignature2022 extends DataIntegritySuite {
 
     @Override
     protected CryptoSuite getCryptoSuite(String cryptoName) throws DocumentError {
-        System.out.println("CRYPTO " + cryptoName);
         return CRYPTO;
     }
 
