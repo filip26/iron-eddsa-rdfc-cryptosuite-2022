@@ -20,17 +20,13 @@ import com.apicatalog.jsonld.loader.DocumentLoader;
 import com.apicatalog.jsonld.loader.DocumentLoaderOptions;
 import com.apicatalog.jsonld.loader.HttpLoader;
 import com.apicatalog.jsonld.loader.SchemeRouter;
-import com.apicatalog.jsonld.schema.LdSchema;
 import com.apicatalog.ld.DocumentError;
 import com.apicatalog.ld.signature.SigningError;
 import com.apicatalog.ld.signature.VerificationError;
 import com.apicatalog.ld.signature.eddsa.EdDSASignature2022;
 import com.apicatalog.ld.signature.key.KeyPair;
-import com.apicatalog.multibase.Multibase.Algorithm;
-import com.apicatalog.multicodec.Multicodec.Codec;
-import com.apicatalog.vc.integrity.DataIntegrityKeysAdapter;
 import com.apicatalog.vc.integrity.DataIntegrityProof;
-import com.apicatalog.vc.integrity.DataIntegritySchema;
+import com.apicatalog.vc.integrity.DataIntegrityVocab;
 import com.apicatalog.vc.processor.Issuer;
 
 import jakarta.json.Json;
@@ -66,7 +62,7 @@ public class VcTestRunnerJunit {
 
                 Vc.verify(testCase.input, new EdDSASignature2022())
                         .loader(LOADER)
-                        .param(DataIntegritySchema.DOMAIN.name(), testCase.domain)
+                        .param(DataIntegrityVocab.DOMAIN.name(), testCase.domain)
                         .isValid();
 
                 assertFalse(isNegative(), "Expected error " + testCase.result);
@@ -92,7 +88,7 @@ public class VcTestRunnerJunit {
                         testCase.domain,
                         null);
 
-                final Issuer issuer = Vc.sign(testCase.input, getKeys(keyPairLocation, LOADER), draft)
+                final Issuer issuer = Vc.sign(testCase.input, getKeyPair(keyPairLocation, LOADER), draft)
                         .loader(LOADER);
 
                 JsonObject signed = issuer.getCompacted();
@@ -198,7 +194,7 @@ public class VcTestRunnerJunit {
         writer.println();
     }
 
-    static final KeyPair getKeys(URI keyPairLocation, DocumentLoader loader)
+    static final KeyPair getKeyPair(URI keyPairLocation, DocumentLoader loader)
             throws DocumentError, JsonLdError {
 
         final JsonArray keys = JsonLd.expand(keyPairLocation).loader(loader).get();
@@ -209,19 +205,7 @@ public class VcTestRunnerJunit {
                 continue;
             }
 
-            LdSchema schema = DataIntegritySchema.getKeyPair(
-                    EdDSASignature2022.KEY_PAIR_TYPE,
-                    DataIntegritySchema.getPublicKey(
-                            Algorithm.Base58Btc,
-                            Codec.Ed25519PublicKey,
-                            k -> k == null || (k.length == 32
-                                    || k.length == 57
-                                    || k.length == 114)),
-                    DataIntegritySchema.getPrivateKey(
-                            Algorithm.Base58Btc,
-                            Codec.Ed25519PrivateKey,
-                            k -> k == null || k.length > 0));
-            return (KeyPair) schema.map(new DataIntegrityKeysAdapter()).read(key);
+            return (KeyPair) EdDSASignature2022.METHOD_ADAPTER.read(key.asJsonObject());
 
         }
         throw new IllegalStateException();
