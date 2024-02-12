@@ -9,12 +9,13 @@ import com.apicatalog.ld.signature.VerificationError;
 import com.apicatalog.ld.signature.VerificationError.Code;
 import com.apicatalog.ld.signature.algorithm.SignatureAlgorithm;
 import com.apicatalog.ld.signature.key.KeyPair;
+import com.apicatalog.multikey.MultiKey;
 import com.google.crypto.tink.signature.SignatureConfig;
 import com.google.crypto.tink.subtle.Ed25519Sign;
 import com.google.crypto.tink.subtle.Ed25519Verify;
 
 public final class EdDSASignature2022Provider implements SignatureAlgorithm {
-    
+
     @Override
     public void verify(byte[] publicKey, byte[] signature, byte[] data) throws VerificationError {
         try {
@@ -48,18 +49,16 @@ public final class EdDSASignature2022Provider implements SignatureAlgorithm {
     }
 
     @Override
-    public KeyPair keygen(int length) throws KeyGenError {
+    public KeyPair keygen() throws KeyGenError {
 
         try {
             final Ed25519Sign.KeyPair kp = Ed25519Sign.KeyPair.newKeyPair();
 
-            return new EdDSAKeyPair2022(
-                            null,
-                            null,
-                            URI.create(EdDsaSignature2022.KEY_PAIR_TYPE.uri()),
-                            kp.getPublicKey(),
-                            kp.getPrivateKey()
-                        );
+            final MultiKey multikey = new MultiKey();
+            multikey.setAlgorithm("Ed25519");
+            multikey.setPublicKey(kp.getPublicKey());
+            multikey.setPrivateKey(kp.getPrivateKey());
+            return multikey;
 
         } catch (GeneralSecurityException e) {
             throw new KeyGenError(e);
