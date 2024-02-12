@@ -4,8 +4,8 @@ An implementation of the [EdDSA RDFC Cryptosuite 2022](https://www.w3.org/TR/vc-
 
 [![Java 17 CI](https://github.com/filip26/iron-eddsa-rdfc-cryptosuite-2022/actions/workflows/java17-build.yml/badge.svg)](https://github.com/filip26/iron-eddsa-rdfc-cryptosuite-2022/actions/workflows/java17-build.yml)
 [![Android (Java 8) CI](https://github.com/filip26/iron-eddsa-rdfc-cryptosuite-2022/actions/workflows/java8-build.yml/badge.svg)](https://github.com/filip26/iron-eddsa-rdfc-cryptosuite-2022/actions/workflows/java8-build.yml)
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/806688cdb1d248e8b5cc2a67f6c2f0f8)](https://www.codacy.com/gh/filip26/iron-eddsa-rdfc-cryptosuite-2022/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=filip26/iron-eddsa-rdfc-cryptosuite-2022&amp;utm_campaign=Badge_Grade)
-[![Codacy Badge](https://app.codacy.com/project/badge/Coverage/806688cdb1d248e8b5cc2a67f6c2f0f8)](https://www.codacy.com/gh/filip26/iron-eddsa-rdfc-cryptosuite-2022/dashboard?utm_source=github.com&utm_medium=referral&utm_content=filip26/iron-eddsa-rdfc-cryptosuite-2022&utm_campaign=Badge_Coverage)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/646b0b676a73465aa61ec80a17730bd6)](https://app.codacy.com/gh/filip26/iron-eddsa-rdfc-cryptosuite-2022/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
+[![Codacy Badge](https://app.codacy.com/project/badge/Coverage/646b0b676a73465aa61ec80a17730bd6)](https://app.codacy.com/gh/filip26/iron-eddsa-rdfc-cryptosuite-2022/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_coverage)
 [![Maven Central](https://img.shields.io/maven-central/v/com.apicatalog/iron-eddsa-rdfc-cryptosuite-2022.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:com.apicatalog%20AND%20a:iron-eddsa-rdfc-cryptosuite-2022)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
