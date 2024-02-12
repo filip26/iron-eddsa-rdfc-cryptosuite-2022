@@ -34,21 +34,14 @@ public final class EdDSASignature2022 extends DataIntegritySuite {
         
         @Override
         protected Multicodec getPublicKeyCodec(String algo, int keyLength) {
-            System.out.println("PUB " + algo + ", " + keyLength);
-            // TODO Auto-generated method stub
-            return null;
+            return KeyCodec.ED25519_PUBLIC_KEY;
         }
         
         @Override
         protected Multicodec getPrivateKeyCodec(String algo, int keyLength) {
-            System.out.println("PRIV " + algo + ", " + keyLength);
-            return null;
+            return KeyCodec.ED25519_PRIVATE_KEY;
         }
     };
-    
-//    public static final LdTerm VERIFICATION_KEY_TYPE = LdTerm.create("Ed25519VerificationKey2020", VcVocab.SECURITY_VOCAB);
-//
-//    public static final LdTerm KEY_PAIR_TYPE = LdTerm.create("Ed25519KeyPair2020", VcVocab.SECURITY_VOCAB);
 
 //    static final LdSchema METHOD_SCHEMA = DataIntegritySchema.getVerificationKey(
 //            VERIFICATION_KEY_TYPE,
