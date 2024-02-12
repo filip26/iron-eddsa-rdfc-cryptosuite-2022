@@ -19,48 +19,34 @@ An implementation of the [EdDSA Cryptosuite 2022](https://www.w3.org/TR/vc-di-ed
 ## Installation
 
 ### Maven
+Java 17+
 
 ```xml
-<!-- Java 17 -->
 <dependency>
     <groupId>com.apicatalog</groupId>
-    <artifactId>iron-eddsa-cryptosuite-2022</artifactId>
-    <version>0.9.0</version>
+    <artifactId>iron-eddsa-rdfc-cryptosuite-2022</artifactId>
+    <version>0.10.0</version>
 </dependency>
 
 <dependency>
     <groupId>com.apicatalog</groupId>
     <artifactId>iron-verifiable-credentials</artifactId>
-    <version>0.9.0</version>
-</dependency>
-```
-
-or
-
-```xml
-<!-- Android (Java 8, Tink) -->
-<dependency>
-    <groupId>com.apicatalog</groupId>
-    <artifactId>iron-eddsa-cryptosuite-2022-jre8</artifactId>
-    <version>0.9.0</version>
-</dependency>
-
-<dependency>
-    <groupId>com.apicatalog</groupId>
-    <artifactId>iron-verifiable-credentials-jre8</artifactId>
-    <version>0.9.0</version>
+    <version>0.10.0</version>
 </dependency>
 ```
 
 ### Gradle
 
+Android 12+ (API Level >=31)
+
 ```gradle
-compile group: 'com.apicatalog', name: 'iron-eddsa-cryptosuite-2022-jre8', version: '0.9.0'
+compile group: 'com.apicatalog', name: 'iron-eddsa-rdfc-cryptosuite-2022-jre8', version: '0.10.0'
+compile group: 'com.apicatalog', name: 'iron-verifiable-credentials-jre8', version: '0.10.0'
 ```
 
 ## Documentation
 
-[![javadoc](https://javadoc.io/badge2/com.apicatalog/iron-eddsa-cryptosuite-2022/javadoc.svg)](https://javadoc.io/doc/com.apicatalog/iron-eddsa-cryptosuite-2022)
+[![javadoc](https://javadoc.io/badge2/com.apicatalog/iron-eddsa-rdfc-cryptosuite-2022/javadoc.svg)](https://javadoc.io/doc/com.apicatalog/iron-eddsa-rdfc-cryptosuite-2022)
 
 ## Usage
 
@@ -68,7 +54,7 @@ compile group: 'com.apicatalog', name: 'iron-eddsa-cryptosuite-2022-jre8', versi
 
 ```java
 try {
-  Vc.verify(credential|presentation, new EdDsaSignature2022())
+  Vc.verify(credential|presentation, new EdDSASignature2022())
       
     // optional
     .base(...)
@@ -91,7 +77,7 @@ try {
 ### Issuing
 
 ```java
-var suite = new EdDsaSignature2022();
+var suite = new EdDSASignature2022();
 
 var proofDraft = suite.createDraft(
     verificationMethod,
@@ -122,19 +108,18 @@ Fork and clone the project repository.
 
 #### Java 17
 ```bash
-> cd iron-eddsa-cryptosuite-2022
+> cd iron-eddsa-rdfc-cryptosuite-2022
 > mvn clean package
 ```
 
 #### Java 8
 ```bash
-> cd iron-eddsa-cryptosuite-2022
+> cd iron-eddsa-rdfc-cryptosuite-2022
 > mvn -f pom_jre8.xml clean package
 ```
 
 ## Resources
 * [EdDSA Cryptosuite 2022](https://www.w3.org/TR/vc-di-eddsa/#eddsa-2022)
-* [Interoperability Report](https://w3c-ccg.github.io/di-ed25519signature2020-test-suite/)
 * [Iron Verifiable Credentials](https://github.com/filip26/iron-verifiable-credentials)
 
 ## Sponsors
@@ -145,4 +130,3 @@ Fork and clone the project repository.
 
 ## Commercial Support
 Commercial support is available at filip26@gmail.com
-.

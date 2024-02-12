@@ -8,14 +8,9 @@ import java.util.stream.Collectors;
 import com.apicatalog.jsonld.json.JsonUtils;
 import com.apicatalog.jsonld.lang.Keywords;
 import com.apicatalog.jsonld.loader.DocumentLoader;
-import com.apicatalog.jsonld.schema.LdSchema;
 import com.apicatalog.ld.DocumentError;
 import com.apicatalog.ld.signature.VerificationMethod;
-import com.apicatalog.ld.signature.eddsa.EdDsaSignature2022;
-import com.apicatalog.multibase.Multibase.Algorithm;
-import com.apicatalog.multicodec.Multicodec.Codec;
-import com.apicatalog.vc.integrity.DataIntegrityKeysAdapter;
-import com.apicatalog.vc.integrity.DataIntegritySchema;
+import com.apicatalog.ld.signature.eddsa.EdDSASignature2022;
 
 import jakarta.json.JsonObject;
 import jakarta.json.JsonString;
@@ -97,20 +92,8 @@ public class VcTestCase {
                 final JsonObject method = options.getJsonArray(vocab("verificationMethod"))
                         .getJsonObject(0);
 
-
-                LdSchema schema = DataIntegritySchema.getVerificationKey(
-                        EdDsaSignature2022.VERIFICATION_KEY_TYPE,
-                        DataIntegritySchema.getPublicKey(
-                                Algorithm.Base58Btc,
-                                Codec.Ed25519PublicKey,
-                                k -> k == null || (k.length == 32
-                                    && k.length == 57
-                                    && k.length == 114
-                                ))
-                );
-
                 try {
-                    testCase.verificationMethod = schema.map(new DataIntegrityKeysAdapter()).read(method);
+                    testCase.verificationMethod = EdDSASignature2022.METHOD_ADAPTER.read(method);
                 } catch (DocumentError e) {
                     throw new IllegalStateException(e);
                 }
