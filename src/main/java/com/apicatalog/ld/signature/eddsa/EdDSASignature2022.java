@@ -4,6 +4,7 @@ import java.net.URI;
 import java.time.Instant;
 
 import com.apicatalog.ld.DocumentError;
+import com.apicatalog.ld.DocumentError.ErrorType;
 import com.apicatalog.ld.signature.CryptoSuite;
 import com.apicatalog.ld.signature.VerificationMethod;
 import com.apicatalog.ld.signature.primitive.MessageDigest;
@@ -11,6 +12,7 @@ import com.apicatalog.ld.signature.primitive.Urdna2015;
 import com.apicatalog.multicodec.Multicodec;
 import com.apicatalog.multicodec.MulticodecDecoder;
 import com.apicatalog.multicodec.codec.KeyCodec;
+import com.apicatalog.multikey.MultiKey;
 import com.apicatalog.multikey.MultiKeyAdapter;
 import com.apicatalog.vc.integrity.DataIntegrityProof;
 import com.apicatalog.vc.integrity.DataIntegritySuite;
@@ -25,32 +27,31 @@ public final class EdDSASignature2022 extends DataIntegritySuite {
 
     public static final MulticodecDecoder CODECS = MulticodecDecoder.getInstance(
             KeyCodec.ED25519_PUBLIC_KEY,
-            KeyCodec.ED25519_PRIVATE_KEY
-            );
-    
+            KeyCodec.ED25519_PRIVATE_KEY);
+
     public static final String CRYPTOSUITE_NAME = "eddsa-rdfc-2022";
-    
+
     public static final MethodAdapter METHOD_ADAPTER = new MultiKeyAdapter(CODECS) {
-        
+
         @Override
         protected Multicodec getPublicKeyCodec(String algo, int keyLength) {
             return KeyCodec.ED25519_PUBLIC_KEY;
         }
-        
+
         @Override
         protected Multicodec getPrivateKeyCodec(String algo, int keyLength) {
             return KeyCodec.ED25519_PRIVATE_KEY;
         }
-    };
 
-//    static final LdSchema METHOD_SCHEMA = DataIntegritySchema.getVerificationKey(
-//            VERIFICATION_KEY_TYPE,
-//            DataIntegritySchema.getPublicKey(
-//                    Algorithm.Base58Btc,
-//                    Codec.Ed25519PublicKey,
-//                    key -> key == null || (key.length == 32
-//                            || key.length == 57
-//                            || key.length == 114)));
+        protected void validate(MultiKey method) throws DocumentError {
+            if (method.publicKey() != null
+                    && method.publicKey().length != 32
+                    && method.publicKey().length != 57
+                    && method.publicKey().length != 114) {
+                throw new DocumentError(ErrorType.Invalid, "PublicKeySize");
+            }
+        };
+    };
 
 //    static final LdProperty<byte[]> PROOF_VALUE_PROPERTY = DataIntegritySchema.getProofValue(
 //            Algorithm.Base58Btc,
