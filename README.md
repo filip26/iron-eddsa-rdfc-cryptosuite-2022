@@ -120,7 +120,6 @@ Fork and clone the project repository.
 
 ## Resources
 * [EdDSA Cryptosuite 2022](https://www.w3.org/TR/vc-di-eddsa/#eddsa-2022)
-* [Interoperability Report](https://w3c.github.io/vc-di-eddsa-test-suite/)
 * [Iron Verifiable Credentials](https://github.com/filip26/iron-verifiable-credentials)
 
 ## Sponsors
@@ -131,4 +130,3 @@ Fork and clone the project repository.
 
 ## Commercial Support
 Commercial support is available at filip26@gmail.com
-.

@@ -8,21 +8,21 @@
 	<parent>
 		<groupId>com.apicatalog</groupId>
 		<artifactId>eddsa-rdfc-2022</artifactId>
-		<version>0.10.0-SNAPSHOT</version>
+		<version>0.10.0</version>
 		<relativePath>pom_parent.xml</relativePath>
 	</parent>
 
-	<artifactId>iron-eddsa-cryptosuite-2022-jre8</artifactId>
+	<artifactId>iron-eddsa-rdfc-cryptosuite-2022-jre8</artifactId>
 	<packaging>jar</packaging>
 
-	<name>Iron EdDSA Signature Suite 2022 (JRE8)</name>
+	<name>Iron EdDSA RDFC Signature Suite 2022 (JRE8)</name>
 
-	<url>https://github.com/filip26/iron-eddsa-cryptosuite-2022</url>
+	<url>https://github.com/filip26/iron-eddsa-rdfc-cryptosuite-2022</url>
 
 	<scm>
-		<connection>scm:git:git://github.com/filip26/iron-eddsa-cryptosuite-2022.git</connection>
-		<developerConnection>scm:git:git://github.com/filip26/iron-eddsa-cryptosuite-2022.git</developerConnection>
-		<url>https://github.com/filip26/iron-eddsa-cryptosuite-2022/tree/main</url>
+		<connection>scm:git:git://github.com/filip26/iron-eddsa-rdfc-cryptosuite-2022.git</connection>
+		<developerConnection>scm:git:git://github.com/filip26/iron-eddsa-rdfc-cryptosuite-2022.git</developerConnection>
+		<url>https://github.com/filip26/iron-eddsa-rdfc-cryptosuite-2022/tree/main</url>
 	</scm>
 
 	<properties>
