@@ -9,10 +9,10 @@
     ],
     "proof": {
         "type": "DataIntegrityProof",
-        "cryptosuite": "eddsa-2022",
+        "cryptosuite": "eddsa-rdfc-2022",
         "created": "2022-05-28T17:02:05Z",
         "proofPurpose": "assertionMethod",
         "verificationMethod": "https://github.com/filip26/iron-verifiable-credentials/verifier/0005-verification-key.json",
-        "proofValue": "z2mAhYjqr36ENgi31zxc1S6rLnrFJBV9FL4cQPBH1DciYTwgEqNiJaUDeQ1WkxjwMx6wcKhwSrwKfybB8T3kmtYem"
+        "proofValue": "z2uiAzr5ZckPuCm6UsC3MFzBcKmn2cFscprifvGeAz3PZqC2Xkvm2gbgCUYYnJ3S2pvceCTxhUi9A7AWv2yr8HDKp"
     }
 }

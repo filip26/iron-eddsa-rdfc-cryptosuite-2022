@@ -28,6 +28,8 @@ public final class EdDSASignature2022 extends DataIntegritySuite {
             KeyCodec.ED25519_PRIVATE_KEY
             );
     
+    public static final String CRYPTOSUITE_NAME = "eddsa-rdfc-2022";
+    
     public static final MethodAdapter METHOD_ADAPTER = new MultiKeyAdapter(CODECS) {
         
         @Override
@@ -62,7 +64,7 @@ public final class EdDSASignature2022 extends DataIntegritySuite {
 //            key -> key.length == 64);
 
     public EdDSASignature2022() {
-        super("eddsa-2022", METHOD_ADAPTER);
+        super(CRYPTOSUITE_NAME, METHOD_ADAPTER);
     }
 
     @Override
