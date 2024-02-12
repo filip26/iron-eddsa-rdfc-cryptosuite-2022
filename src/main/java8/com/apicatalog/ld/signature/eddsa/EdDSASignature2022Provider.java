@@ -1,4 +1,4 @@
-package com.apicatalog.ld.signature.ed25519;
+package com.apicatalog.ld.signature.eddsa;
 
 import java.net.URI;
 import java.security.GeneralSecurityException;
