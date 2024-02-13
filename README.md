@@ -1,6 +1,6 @@
-# Iron EdDSA RDFC Signature Suite 2022
+# Iron EdDSA RDFC 2022 Cryptographic Suite
 
-An implementation of the [EdDSA RDFC Cryptosuite 2022](https://www.w3.org/TR/vc-di-eddsa/#eddsa-rdfc-2022) in Java.
+An implementation of the [EdDSA RDFC 2022 Cryptosuite](https://www.w3.org/TR/vc-di-eddsa/#eddsa-rdfc-2022) in Java.
 
 [![Java 17 CI](https://github.com/filip26/iron-eddsa-rdfc-cryptosuite-2022/actions/workflows/java17-build.yml/badge.svg)](https://github.com/filip26/iron-eddsa-rdfc-cryptosuite-2022/actions/workflows/java17-build.yml)
 [![Android (Java 8) CI](https://github.com/filip26/iron-eddsa-rdfc-cryptosuite-2022/actions/workflows/java8-build.yml/badge.svg)](https://github.com/filip26/iron-eddsa-rdfc-cryptosuite-2022/actions/workflows/java8-build.yml)
@@ -10,7 +10,7 @@ An implementation of the [EdDSA RDFC Cryptosuite 2022](https://www.w3.org/TR/vc-
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 ## Features
-* [EdDSA RDFC Signature 2022](https://www.w3.org/TR/vc-di-eddsa/#eddsa-rdfc-2022)
+* [EdDSA RDFC 2022](https://www.w3.org/TR/vc-di-eddsa/#eddsa-rdfc-2022)
   * Verifying VC/VP
   * Issuing VC/VP
 * [VC HTTP API & Service](https://github.com/filip26/iron-vc-api)
@@ -118,7 +118,7 @@ Fork and clone the project repository.
 ```
 
 ## Resources
-* [EdDSA RDFC Cryptosuite 2022](https://www.w3.org/TR/vc-di-eddsa/#eddsa-rdfc-2022)
+* [EdDSA RDFC 2022 Cryptosuite](https://www.w3.org/TR/vc-di-eddsa/#eddsa-rdfc-2022)
 * [Iron Verifiable Credentials](https://github.com/filip26/iron-verifiable-credentials)
 
 ## Sponsors
