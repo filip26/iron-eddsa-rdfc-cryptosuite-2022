@@ -10,7 +10,7 @@ An implementation of the [W3C EdDSA RDFC 2022](https://www.w3.org/TR/vc-di-eddsa
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 ## Features
-* [EdDSA RDFC 2022](https://www.w3.org/TR/vc-di-eddsa/#eddsa-rdfc-2022)
+* [W3C EdDSA RDFC 2022](https://www.w3.org/TR/vc-di-eddsa/#eddsa-rdfc-2022)
   * Verifying VC/VP
   * Issuing VC/VP
 * [VC HTTP API & Service](https://github.com/filip26/iron-vc-api)
