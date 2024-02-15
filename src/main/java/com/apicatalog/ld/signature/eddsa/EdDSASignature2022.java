@@ -64,11 +64,6 @@ public final class EdDSASignature2022 extends DataIntegritySuite {
         }
     }
 
-    @Override
-    protected CryptoSuite getCryptoSuite(String cryptoName) throws DocumentError {
-        return CRYPTO;
-    }
-
     public DataIntegrityProof createDraft(
             VerificationMethod verificationMethod,
             URI purpose,
@@ -76,5 +71,10 @@ public final class EdDSASignature2022 extends DataIntegritySuite {
             String domain,
             String challenge) throws DocumentError {
         return super.createDraft(CRYPTO, verificationMethod, purpose, created, domain, challenge);
+    }
+
+    @Override
+    protected CryptoSuite getCryptoSuite(String cryptoName, byte[] proofValue) throws DocumentError {
+        return CRYPTO;
     }
 }

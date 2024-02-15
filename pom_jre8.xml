@@ -8,28 +8,28 @@
 	<parent>
 		<groupId>com.apicatalog</groupId>
 		<artifactId>eddsa-rdfc-2022</artifactId>
-		<version>0.10.0</version>
+		<version>0.11.0</version>
 		<relativePath>pom_parent.xml</relativePath>
 	</parent>
 
-	<artifactId>iron-eddsa-rdfc-cryptosuite-2022-jre8</artifactId>
+	<artifactId>iron-eddsa-rdfc-2022-jre8</artifactId>
 	<packaging>jar</packaging>
 
-	<name>Iron EdDSA RDFC Signature Suite 2022 (JRE8)</name>
+	<name>Iron EdDSA RDFC 2022 Signature Suite (JRE8)</name>
 
-	<url>https://github.com/filip26/iron-eddsa-rdfc-cryptosuite-2022</url>
+	<url>https://github.com/filip26/iron-eddsa-rdfc-2022</url>
 
 	<scm>
-		<connection>scm:git:git://github.com/filip26/iron-eddsa-rdfc-cryptosuite-2022.git</connection>
-		<developerConnection>scm:git:git://github.com/filip26/iron-eddsa-rdfc-cryptosuite-2022.git</developerConnection>
-		<url>https://github.com/filip26/iron-eddsa-rdfc-cryptosuite-2022/tree/main</url>
+		<connection>scm:git:git://github.com/filip26/iron-eddsa-rdfc-2022.git</connection>
+		<developerConnection>scm:git:git://github.com/filip26/iron-eddsa-rdfc-2022.git</developerConnection>
+		<url>https://github.com/filip26/iron-eddsa-rdfc-2022/tree/main</url>
 	</scm>
 
 	<properties>
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<envSources>src/main/java8</envSources>
-		<tink.version>1.6.1</tink.version>
+		<tink.version>1.12.0</tink.version>
 		<rdf-urdna.version>1.2</rdf-urdna.version>
 	</properties>
 

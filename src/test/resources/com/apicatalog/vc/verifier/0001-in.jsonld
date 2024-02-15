@@ -3,16 +3,13 @@
 	"type": "VerifiableCredential",
 	"issuer": "https://github.com/filip26/iron-verifiable-credentials/issuer/1",
 	"credentialSubject": "did:example:ebfeb1f712ebc6f1c276e12ec21",
-	"@context": [
-		"https://www.w3.org/ns/credentials/v2",
-		"https://w3id.org/security/data-integrity/v1"
-	],
+	"@context": "https://www.w3.org/ns/credentials/v2",
 	"proof": {
 		"type": "DataIntegrityProof",
 		"cryptosuite": "eddsa-rdfc-2022",
 		"created": "2022-05-28T17:02:05Z",
 		"proofPurpose": "assertionMethod",
 		"verificationMethod": "https://github.com/filip26/iron-verifiable-credentials/verifier/0005-verification-key.json",
-		"proofValue": "z2uiAzr5ZckPuCm6UsC3MFzBcKmn2cFscprifvGeAz3PZqC2Xkvm2gbgCUYYnJ3S2pvceCTxhUi9A7AWv2yr8HDKp"
+		"proofValue": "z4iKHLMaskFZbhFN6ZneWqJzNmqDxYXXeNbGvLCgJS7c4Nz2NQFCxd9uD3kjbtUvur57BmuXjDeP39eUQWPdsgvSn"
 	}
 }

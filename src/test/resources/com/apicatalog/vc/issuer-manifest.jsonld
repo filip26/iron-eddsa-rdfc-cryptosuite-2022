@@ -38,6 +38,22 @@
 				"verificationMethod": "did:key:z6Mkska8oQD7QQQWxqa7L5ai4mH98HfAdSwomPFYKuqNyE2y#z6Mkska8oQD7QQQWxqa7L5ai4mH98HfAdSwomPFYKuqNyE2y",
 				"created": "2022-05-28T17:02:05Z"
 			}
-		}
+		},
+        {
+            "@id": "#t0003",
+            "@type": [
+                "PositiveEvaluationTest",
+                "IssuerTest"
+            ],
+            "name": "W3C Test Vector",
+            "input": "issuer/0003-in.jsonld",
+            "expect": "issuer/0003-out.jsonld",
+            "context": "issuer/0003-context.jsonld",
+            "options": {
+                "keyPair": "issuer/0003-keys.json",
+                "verificationMethod": "https://vc.example/issuers/5678#z6MkrJVnaZkeFzdQyMZu1cgjg7k1pZZ6pvBQ7XJPt4swbTQ2",
+                "created": "2023-02-24T23:36:38Z"
+            }
+        }
 	]
 }
