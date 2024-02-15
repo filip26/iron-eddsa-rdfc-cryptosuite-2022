@@ -40,7 +40,7 @@ Android 12+ (API Level >=31)
 
 ```gradle
 compile group: 'com.apicatalog', name: 'iron-eddsa-rdfc-2022-jre8', version: '0.11.0'
-compile group: 'com.apicatalog', name: 'iron-verifiable-jre8', version: '0.11.0'
+compile group: 'com.apicatalog', name: 'iron-verifiable-credentials-jre8', version: '0.11.0'
 ```
 
 ## Documentation
