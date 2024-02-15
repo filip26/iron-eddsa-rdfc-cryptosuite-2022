@@ -5,13 +5,13 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.apicatalog</groupId>
 	<artifactId>eddsa-rdfc-2022</artifactId>
-	<version>0.10.0</version>
+	<version>0.11.0</version>
 	<packaging>pom</packaging>
 
-	<name>Iron EdDSA Signature Suite 2022</name>
+	<name>Iron EdDSA RDFC 2022 Signature Suite</name>
 
 	<description>
-        Verifiable Credentials EdDSA RDFC Signature Suite 2022
+        Verifiable Credentials EdDSA RDFC 2022 Signature Suite
     </description>
 
 	<licenses>
@@ -23,15 +23,15 @@
 
 	<issueManagement>
 		<system>github</system>
-		<url>https://github.com/filip26/iron-eddsa-rdfc-cryptosuite-2022/issues</url>
+		<url>https://github.com/filip26/iron-eddsa-rdfc-2022/issues</url>
 	</issueManagement>
 
-	<url>https://github.com/filip26/iron-eddsa-rdfc-cryptosuite-2022</url>
+	<url>https://github.com/filip26/iron-eddsa-rdfc-2022</url>
 
 	<scm>
-		<connection>scm:git:git://github.com/filip26/iron-eddsa-rdfc-cryptosuite-2022.git</connection>
-		<developerConnection>scm:git:git://github.com/filip26/iron-eddsa-rdfc-cryptosuite-2022.git</developerConnection>
-		<url>https://github.com/filip26/iron-eddsa-rdfc-cryptosuite-2022/tree/main</url>
+		<connection>scm:git:git://github.com/filip26/iron-eddsa-rdfc-2022.git</connection>
+		<developerConnection>scm:git:git://github.com/filip26/iron-eddsa-rdfc-2022.git</developerConnection>
+		<url>https://github.com/filip26/iron-eddsa-rdfc-2022/tree/main</url>
 	</scm>
 
 	<developers>
@@ -52,10 +52,10 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<argLine>-Dfile.encoding=UTF-8</argLine>
 
-		<carbon.version>0.2.0</carbon.version>
-		<copper-base.version>0.4.0</copper-base.version>
+		<carbon.version>0.3.0</carbon.version>
+		<copper-base.version>0.5.0</copper-base.version>
 		<copper-codec.version>0.1.1</copper-codec.version>
-		<iron.version>0.10.0</iron.version>
+		<iron.version>0.11.0-SNAPSHOT</iron.version>
 
 		<jakarta.json.version>2.0.1</jakarta.json.version>
 		<junit.version>5.8.2</junit.version>
@@ -140,10 +140,10 @@
 					</execution>
 				</executions>
 				<configuration>
-					<description>Iron EdDSA RDFC Signature Suite 2022 Documentation</description>
-					<doctitle>Iron EdDSA RDFC Signature Suite 2022 Documentation</doctitle>
+					<description>Iron EdDSA RDFC 2022 Signature Suite Documentation</description>
+					<doctitle>Iron EdDSA RDFC 2022 Signature Suite Documentation</doctitle>
 					<header>
-                        <![CDATA[<br>Iron EdDSA RDFC Signature Suite 2022 v${project.version}]]>
+                        <![CDATA[<br>Iron EdDSA RDFC 2022 Signature Suite v${project.version}]]>
 					</header>
 					<failOnWarnings>false</failOnWarnings>
 					<additionalOptions>
