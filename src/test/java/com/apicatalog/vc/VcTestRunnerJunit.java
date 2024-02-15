@@ -91,7 +91,15 @@ public class VcTestRunnerJunit {
                 final Issuer issuer = Vc.sign(testCase.input, getKeyPair(keyPairLocation, LOADER), draft)
                         .loader(LOADER);
 
-                JsonObject signed = issuer.getCompacted();
+                JsonObject signed = null;
+
+                if (testCase.context != null) {
+
+                    signed = issuer.getCompacted(testCase.context);
+                    
+                } else {
+                    signed = issuer.getCompacted();
+                }
 
                 assertFalse(isNegative(), "Expected error " + testCase.result);
 
