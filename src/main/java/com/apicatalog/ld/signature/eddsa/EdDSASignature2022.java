@@ -18,6 +18,8 @@ import com.apicatalog.vc.integrity.DataIntegrityProof;
 import com.apicatalog.vc.integrity.DataIntegritySuite;
 import com.apicatalog.vc.method.MethodAdapter;
 
+import jakarta.json.JsonObject;
+
 public final class EdDSASignature2022 extends DataIntegritySuite {
 
     public static final CryptoSuite CRYPTO = new CryptoSuite(
@@ -30,6 +32,7 @@ public final class EdDSASignature2022 extends DataIntegritySuite {
             KeyCodec.ED25519_PRIVATE_KEY);
 
     public static final String CRYPTOSUITE_NAME = "eddsa-rdfc-2022";
+    static final String LEGACY_CRYPTOSUITE_NAME = "eddsa-2022";
 
     public static final MethodAdapter METHOD_ADAPTER = new MultiKeyAdapter(CODECS) {
 
@@ -76,5 +79,14 @@ public final class EdDSASignature2022 extends DataIntegritySuite {
     @Override
     protected CryptoSuite getCryptoSuite(String cryptoName, byte[] proofValue) throws DocumentError {
         return CRYPTO;
+    }
+
+    @Override
+    public boolean isSupported(String proofType, JsonObject expandedProof) {
+        if (PROOF_TYPE_ID.equals(proofType)) {
+            final String proofSuite = getCryptoSuiteName(expandedProof);
+            return cryptosuite.equals(proofSuite) || LEGACY_CRYPTOSUITE_NAME.equals(proofSuite);
+        }
+        return false;
     }
 }
