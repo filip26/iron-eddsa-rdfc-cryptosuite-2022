@@ -6,6 +6,7 @@ import com.apicatalog.jsonld.loader.DocumentLoader;
 import com.apicatalog.ld.DocumentError;
 import com.apicatalog.ld.DocumentError.ErrorType;
 import com.apicatalog.ld.signature.CryptoSuite;
+import com.apicatalog.ld.signature.VerificationMethod;
 import com.apicatalog.ld.signature.key.KeyPair;
 import com.apicatalog.ld.signature.primitive.MessageDigest;
 import com.apicatalog.ld.signature.primitive.Urdna2015;
@@ -60,6 +61,12 @@ public final class EdDSASignature2022 extends DataIntegritySuite {
 
     public EdDSASignature2022() {
         super(CRYPTOSUITE_NAME, Multibase.BASE_58_BTC,  METHOD_ADAPTER);
+    }
+
+    public DataIntegrityProofDraft createDraft(
+            VerificationMethod method,
+            URI purpose) throws DocumentError {
+        return new DataIntegrityProofDraft(this, CRYPTO, method, purpose);
     }
 
     public DataIntegrityProofDraft createDraft(

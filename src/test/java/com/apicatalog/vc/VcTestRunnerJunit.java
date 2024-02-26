@@ -28,7 +28,7 @@ import com.apicatalog.ld.signature.eddsa.EdDSASignature2022;
 import com.apicatalog.ld.signature.key.KeyPair;
 import com.apicatalog.vc.integrity.DataIntegrityProofDraft;
 import com.apicatalog.vc.integrity.DataIntegrityVocab;
-import com.apicatalog.vc.issuer.IssuedVerifiable;
+import com.apicatalog.vc.issuer.ExpandedVerifiable;
 import com.apicatalog.vc.loader.StaticContextLoader;
 import com.apicatalog.vc.verifier.Verifier;
 
@@ -94,7 +94,7 @@ public class VcTestRunnerJunit {
                 draft.created(testCase.created);
                 draft.domain(testCase.domain);
 
-                final IssuedVerifiable issued = SUITE
+                final ExpandedVerifiable issued = SUITE
                         .createIssuer(getKeyPair(keyPairLocation, LOADER))
                         .loader(LOADER)
                         .sign(testCase.input, draft);
