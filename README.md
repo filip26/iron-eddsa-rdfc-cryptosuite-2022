@@ -49,8 +49,8 @@ implementation("com.apicatalog:iron-verifiable-credentials-jre8:0.14.0")
 ```javascript
 // create a new verifier instance
 static Verifier VERIFIER = Verifier.with(new EdDSASignature2022())
-    .loader(new Ed25519ContextLoader())
     // options
+    .loader(...)
     .statusValidator(...)
     .subjectValidator(...);
 
