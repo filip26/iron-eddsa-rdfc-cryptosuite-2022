@@ -5,17 +5,30 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>com.apicatalog</groupId>
-        <artifactId>eddsa-rdfc-2022</artifactId>
-        <version>0.14.0</version>
-        <relativePath>pom_parent.xml</relativePath>
-    </parent>
-
+    <groupId>com.apicatalog</groupId>
     <artifactId>iron-eddsa-rdfc-2022</artifactId>
+    <version>0.15.1-SNAPSHOT</version>
+
     <packaging>jar</packaging>
 
-    <name>Iron EdDSA RDFC 2022 Signature Suite (JRE17)</name>
+    <name>Iron EdDSA RDFC 2022 Signature Suite</name>
+
+    <description>
+        An implementation of the W3C Verifiable Credentials eddsa-rdfc-2020
+        signature suite in Java
+    </description>
+
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>http://apache.org/licenses/LICENSE-2.0</url>
+        </license>
+    </licenses>
+
+    <issueManagement>
+        <system>github</system>
+        <url>https://github.com/filip26/iron-eddsa-rdfc-2022/issues</url>
+    </issueManagement>
 
     <url>https://github.com/filip26/iron-eddsa-rdfc-2022</url>
 
@@ -29,9 +42,24 @@
     </scm>
 
     <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <argLine>-Dfile.encoding=UTF-8</argLine>
         <maven.compiler.target>17</maven.compiler.target>
         <maven.compiler.source>17</maven.compiler.source>
         <envSources>src/main/java17</envSources>
+        <iron.version>0.15.1-SNAPSHOT</iron.version>
+        <jakarta.json.version>2.0.1</jakarta.json.version>
+        <!-- test resources -->
+        <junit.version>5.11.3</junit.version>
+
+        <!-- REMOVE -->
+        <linked-tree.version>0.0.68-SNAPSHOT</linked-tree.version>
+        <copper.multicodec.version>1.1.0</copper.multicodec.version>
+        <copper.multibase.version>1.0.0</copper.multibase.version>
+        <carbon.version>0.10.0-SNAPSHOT</carbon.version>
+        <titanium.version>1.4.1</titanium.version>
+
     </properties>
 
     <dependencies>
@@ -41,6 +69,168 @@
             <version>${iron.version}</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>org.glassfish</groupId>
+            <artifactId>jakarta.json</artifactId>
+            <version>${jakarta.json.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- REMOVE -->
+<!--        <dependency>-->
+<!--            <groupId>com.apicatalog</groupId>-->
+<!--            <artifactId>copper-multibase</artifactId>-->
+<!--            <version>${copper.multibase.version}</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>com.apicatalog</groupId>-->
+<!--            <artifactId>copper-multicodec</artifactId>-->
+<!--            <version>${copper.multicodec.version}</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>com.apicatalog</groupId>-->
+<!--            <artifactId>carbon-did</artifactId>-->
+<!--            <version>${carbon.version}</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>com.apicatalog</groupId>-->
+<!--            <artifactId>linked-tree</artifactId>-->
+<!--            <version>${linked-tree.version}</version>-->
+<!--        </dependency>-->
+
+<!--        <dependency>-->
+<!--            <groupId>com.apicatalog</groupId>-->
+<!--            <artifactId>titanium-json-ld</artifactId>-->
+<!--            <version>${titanium.version}</version>-->
+<!--        </dependency>-->
+
     </dependencies>
 
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.4.2</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.3.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.11.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <description>Iron EdDSA RDFC 2022 Signature Suite
+                        Documentation</description>
+                    <doctitle>Iron EdDSA RDFC 2022 Signature Suite Documentation</doctitle>
+                    <header>
+                        <![CDATA[<br>Iron EdDSA RDFC 2022 Signature Suite Documentation v${project.version}]]>
+                    </header>
+                    <failOnWarnings>false</failOnWarnings>
+                    <additionalOptions>
+                        <additionalOption>-Xdoclint:none</additionalOption>
+                    </additionalOptions>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.12</version>
+                <executions>
+                    <execution>
+                        <id>default-prepare-agent</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>report</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.5.2</version>
+            </plugin>
+            <plugin>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>3.5.2</version>
+            </plugin>
+        </plugins>
+    </build>
+
+
+    <profiles>
+        <profile>
+            <id>maven-central</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>3.2.7</version>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                                <configuration>
+                                    <signer>bc</signer>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.sonatype.plugins</groupId>
+                        <artifactId>nexus-staging-maven-plugin</artifactId>
+                        <version>1.7.0</version>
+                        <extensions>true</extensions>
+                        <configuration>
+                            <serverId>ossrh</serverId>
+                            <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                            <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+            <distributionManagement>
+                <snapshotRepository>
+                    <id>ossrh</id>
+                    <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+                </snapshotRepository>
+            </distributionManagement>
+        </profile>
+    </profiles>
 </project>

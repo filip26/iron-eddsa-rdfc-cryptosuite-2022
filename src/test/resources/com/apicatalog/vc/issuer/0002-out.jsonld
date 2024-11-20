@@ -1,18 +1,16 @@
 {
-	"id": "https://apicatalog/com/vc/test-credentials#0023",
-	"type": "VerifiableCredential",
-	"issuer": "https://github.com/filip26/iron-verifiable-credentials/issuer/23",
-	"validFrom": "2023-01-01T00:00:00Z",
-	"credentialSubject": "did:example:ebfeb1f712ebc6f1c276e12ec21",
-	"@context": [
-		"https://www.w3.org/ns/credentials/v2"
-	],
-	"proof": {
-		"type": "DataIntegrityProof",
-		"cryptosuite": "eddsa-rdfc-2022",
-		"created": "2022-05-28T17:02:05Z",
-		"proofPurpose": "assertionMethod",
-		"verificationMethod": "did:key:z6Mkska8oQD7QQQWxqa7L5ai4mH98HfAdSwomPFYKuqNyE2y#z6Mkska8oQD7QQQWxqa7L5ai4mH98HfAdSwomPFYKuqNyE2y",
-		"proofValue": "z4uCRjy3c7GxY1j2sFqeBe41ws96R7QUh75AFiuVGZMoAkfQ9YxjJW7QfbE6ZwoRVWu9uycDgsXHBiNJf5oahrEkt"
-	}
+  "@context": "https://www.w3.org/ns/credentials/v2",
+  "id": "https://apicatalog/com/vc/test-credentials#0023",
+  "type": "VerifiableCredential",
+  "issuer": "https://github.com/filip26/iron-verifiable-credentials/issuer/23",
+  "validFrom": "2023-01-01T00:00:00Z",
+  "credentialSubject": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+  "proof": {
+    "type": "DataIntegrityProof",
+    "cryptosuite": "eddsa-rdfc-2022",
+    "created": "2022-05-28T17:02:05Z",
+    "proofPurpose": "assertionMethod",
+    "verificationMethod": "did:key:z6Mkska8oQD7QQQWxqa7L5ai4mH98HfAdSwomPFYKuqNyE2y#z6Mkska8oQD7QQQWxqa7L5ai4mH98HfAdSwomPFYKuqNyE2y",
+    "proofValue": "z4uCRjy3c7GxY1j2sFqeBe41ws96R7QUh75AFiuVGZMoAkfQ9YxjJW7QfbE6ZwoRVWu9uycDgsXHBiNJf5oahrEkt"
+  }
 }
