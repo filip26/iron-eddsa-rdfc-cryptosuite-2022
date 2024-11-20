@@ -34,7 +34,7 @@ public final class EdDSASignature2022 extends DataIntegritySuite {
             32,
             new Urdna2015(),
             new MessageDigest("SHA-256"),
-            new EdDSASignature2022Provider());
+            new NativeSignatureProvider("Ed25519"));
 
     public EdDSASignature2022() {
         super(CRYPTOSUITE_NAME, Multibase.BASE_58_BTC);
@@ -66,6 +66,9 @@ public final class EdDSASignature2022 extends DataIntegritySuite {
 
     @Override
     protected CryptoSuite getCryptoSuite(String cryptoName, ProofValue proofValue) throws DocumentError {
+        if (!CRYPTOSUITE_NAME.equals(cryptoName)) {
+            return null;
+        }
         return CRYPTO;
     }
 }
