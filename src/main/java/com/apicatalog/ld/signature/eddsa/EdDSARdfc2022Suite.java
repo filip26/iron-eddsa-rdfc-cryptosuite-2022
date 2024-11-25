@@ -3,7 +3,6 @@ package com.apicatalog.ld.signature.eddsa;
 import java.net.URI;
 
 import com.apicatalog.controller.key.KeyPair;
-import com.apicatalog.controller.method.VerificationMethod;
 import com.apicatalog.cryptosuite.CryptoSuite;
 import com.apicatalog.cryptosuite.primitive.MessageDigest;
 import com.apicatalog.cryptosuite.primitive.Urdna2015;
@@ -21,7 +20,7 @@ import com.apicatalog.vc.solid.SolidProofValue;
 import com.apicatalog.vcdi.DataIntegrityProofDraft;
 import com.apicatalog.vcdi.DataIntegritySuite;
 
-public final class EdDSASignature2022 extends DataIntegritySuite {
+public final class EdDSARdfc2022Suite extends DataIntegritySuite {
 
     public static final String CRYPTOSUITE_NAME = "eddsa-rdfc-2022";
 
@@ -31,29 +30,27 @@ public final class EdDSASignature2022 extends DataIntegritySuite {
 
     public static final CryptoSuite CRYPTO = new CryptoSuite(
             CRYPTOSUITE_NAME,
-            32,
+            256,
             new Urdna2015(),
             new MessageDigest("SHA-256"),
             new NativeSignatureProvider("Ed25519"));
 
-    public EdDSASignature2022() {
+    public EdDSARdfc2022Suite() {
         super(CRYPTOSUITE_NAME, Multibase.BASE_58_BTC);
     }
 
     @Override
     public Issuer createIssuer(KeyPair keyPair) {
-        return new SolidIssuer(this, CRYPTO, keyPair, proofValueBase);
+        return new SolidIssuer(
+                this,
+                CRYPTO,
+                keyPair,
+                proofValueBase,
+                method -> new DataIntegrityProofDraft(this, CRYPTO, method));
     }
 
-    public DataIntegrityProofDraft createDraft(VerificationMethod verificationMethod, URI purpose) {
-        return new DataIntegrityProofDraft(this, CRYPTO, verificationMethod, purpose);
-    }
-
-    public DataIntegrityProofDraft createDraft(URI verificationMethod, URI purpose) {
-        return new DataIntegrityProofDraft(this, CRYPTO, verificationMethod, purpose);
-    }
-
-    protected ProofValue getProofValue(VerifiableMaterial data, VerifiableMaterial proof, byte[] proofValue, DocumentLoader loader) throws DocumentError {
+    @Override
+    protected ProofValue getProofValue(VerifiableMaterial data, VerifiableMaterial proof, byte[] proofValue, DocumentLoader loader, URI base) throws DocumentError {
         if (proofValue == null) {
             return null;
         }
