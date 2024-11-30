@@ -15,13 +15,13 @@ import java.security.spec.InvalidParameterSpecException;
 import java.security.spec.NamedParameterSpec;
 
 import com.apicatalog.controller.key.KeyPair;
-import com.apicatalog.cryptosuite.SigningError;
-import com.apicatalog.cryptosuite.SigningError.SignatureErrorCode;
+import com.apicatalog.cryptosuite.CryptoSuiteError;
+import com.apicatalog.cryptosuite.CryptoSuiteError.CryptoSuiteErrorCode;
 import com.apicatalog.cryptosuite.VerificationError;
 import com.apicatalog.cryptosuite.VerificationError.VerificationErrorCode;
-import com.apicatalog.cryptosuite.algorithm.Signer;
+import com.apicatalog.cryptosuite.algorithm.SignatureAlgorithm;
 
-class NativeSignatureProvider implements Signer {
+class NativeSignatureProvider implements SignatureAlgorithm {
 
     private final String type;
 
@@ -48,7 +48,7 @@ class NativeSignatureProvider implements Signer {
     }
 
     @Override
-    public byte[] sign(byte[] privateKey, byte[] data) throws SigningError {
+    public byte[] sign(byte[] privateKey, byte[] data) throws CryptoSuiteError {
 
         try {
             java.security.Signature suite = java.security.Signature.getInstance(type);
@@ -60,7 +60,7 @@ class NativeSignatureProvider implements Signer {
 
         } catch (InvalidParameterSpecException | InvalidKeySpecException | InvalidKeyException
                 | NoSuchAlgorithmException | SignatureException e) {
-            throw new SigningError(e, SignatureErrorCode.Internal);
+            throw new CryptoSuiteError(CryptoSuiteErrorCode.Signature, e);
         }
     }
 
